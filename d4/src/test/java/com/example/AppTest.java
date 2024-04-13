@@ -1,12 +1,12 @@
 package com.example;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
  * Unit test for simple App.
@@ -16,11 +16,10 @@ public class AppTest {
      * Rigorous Test :-)
      */
     @Test
-    public void shouldAnswerWithTrue() throws MalformedURLException {
-        // assertTrue( true );
-        WebDriver driver;
-        ChromeOptions co = new ChromeOptions();
-        driver = new RemoteWebDriver(new URL("http://localhost:8080/"), co);
+    public void shouldAnswerWithTrue() throws InterruptedException {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
         driver.get("https://www.shoppersstop.com/");
+        assertTrue(true);
     }
 }
